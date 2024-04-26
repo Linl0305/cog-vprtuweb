@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Node Serial Connection</title>
+<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+<div>Message received: <br></div>
+<style>
+#text {
+  font-family: Arial, Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+  border: 2px solid rgb(0, 255, 98);
+  text-transform: none;
+  overflow: auto;
+  text-align: left;
+  margin-top:4px;
+  margin:6px;
+  width:97vw;
+  border: 2px solid rgb(0, 255, 98);
+  height:75vh;
+}
+</style>
+<div id=text></div>
+<script>
+function send_msg(data) {
+  var txt = document.getElementById("msg").value;
+  txt = txt + data;
+  socket.emit('send', { Data: txt} );
+  document.getElementById("msg").value = "";
+  document.sendform.msg.focus();
+}
+function zeroFill(i) { return (i < 10 ? '0' : '') + i }
+function now() {
+  var d = new Date()
+  return d.getFullYear() + '-'
+    + zeroFill((d.getMonth() + 1)) + '-'
+    + zeroFill(d.getDate())        + ' '
+    + zeroFill(d.getHours())       + ':'
+    + zeroFill(d.getMinutes())     + ':'
+    + zeroFill(d.getSeconds())
+}
+var text   = document.getElementById('text');
+var socket = io.connect('http://localhost:8888');
+socket.on('data', function(data) {
+//console.log(JSON.stringify(data));
+  var msgs  = document.getElementById("text");
+  var txt   = msgs.innerHTML;
+  var rep   = data.data.replace(/\x0D\x0A/g,"<br />");
+  txt       = txt + "<br>" + now() + " " + rep;
+  msgs.innerHTML = txt;
+  msgs.scrollTop = msgs.scrollHeight;
+ });
+
+document.getElementById('msg').addEventListener('keypress', function(event) {
+  if (event.keyCode == 13) {  send_msg("\n");  event.preventDefault(); }
+});
+document.sendform.msg.focus();
+</script>
+</body>
+</html>

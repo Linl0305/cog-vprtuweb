@@ -1,0 +1,28 @@
+{
+  "name": "cog-vprtuweb",
+  "version": "1.0.0",
+  "description": "Vison pro communicator gui",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Linl0305/cog-vprtuweb.git"
+  },
+  "keywords": [
+    "Browser",
+    "verion",
+    "visionpro"
+  ],
+  "author": "linlu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Linl0305/cog-vprtuweb/issues"
+  },
+  "homepage": "https://github.com/Linl0305/cog-vprtuweb#readme",
+  "dependencies": {
+    "cog-vprtu": "^1.0.0",
+    "serial-browser": "^0.0.2"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "cog-vprtu",
+  "version": "1.0.0",
+  "description": "Cognex visionpro communication thru Modbus RTU",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Linl0305/cog-vprtu.git"
+  },
+  "keywords": [
+    "Cognex",
+    "visionpro",
+    "Modbus",
+    "RTU"
+  ],
+  "author": "linlu0305",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Linl0305/cog-vprtu/issues"
+  },
+  "homepage": "https://github.com/Linl0305/cog-vprtu#readme",
+  "dependencies": {
+    "cog-visionpro": "^0.0.1",
+    "serialport": "^12.0.0"
+  }
+}
